@@ -34,3 +34,7 @@ print(users_transactions.dtypes)
 
 #summ=users_transactions[users_transactions['TIME_AS_USER_WHEN_PURCHASING_MO']>6].groupby('BRAND')['FINAL_SALE'].sum().reset_index()
 #print(summ)
+######################################## MERGING
+
+
+merged_df.to_csv('../1_data/processed/merged_data.csv')
