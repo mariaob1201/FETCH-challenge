@@ -1,5 +1,7 @@
-'''
+''' SCRIPT 1
 Maria Oros
+This is the first assessment of the data in terms of simple stats of the fields, to evaluate consistency and completitude of the information
+
 
 ------- Instructions from link --------
 First: explore the data
