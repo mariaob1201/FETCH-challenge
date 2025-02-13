@@ -15,6 +15,7 @@ python 2_processing/1_explore_data.py run
 '''
 
 import pandas as pd
+import numpy as np
 
 # Reading files
 products = pd.read_csv('1_data/raw/PRODUCTS_TAKEHOME.csv', sep=',')
@@ -151,6 +152,9 @@ dtype: object
     Transaction: 
     seems to be the data set with more complete data, the only field with missing information is BARCODE about 11% onf the total entries
     FINAL_QUANTITY and FINAL_SALE are not numeric
+    
+    Other data quality issues are reatives to the data types, eg FINAL_QUANTITY and FINAL_SALE were not numerical data as it was described in the entity relationship model. 
+    The same occurred with date.
 
 - Are there any fields that are challenging to understand?
     Not really. seems like there were some inconsistencies in the data that lead into a difficult intepretation for example in
