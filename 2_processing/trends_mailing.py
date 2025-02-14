@@ -25,11 +25,26 @@ Technical Details (to Address with the SE Team):
 
 I mention those points because ensuring consistent formatting across entities and mitigate any potential error from our pipelines will be critical to have later accurate and reliable analysis from the Data Analysis team.
 
-Business Insights:
-After exploring the data, I identified some notable insights that I want to share
-- The transactions are primarily related to the year 2024.
-- The most frequently sold products are from the Snacks category, followed by Health and Wellness.
-- Neverthless, in terms of sales,
+Business Sales Trends:
+- After thoroughly exploring the data, I have identified the following key findings:
+- Transaction Period: The data primarily reflects transactions from the year 2024.
+- Sales Trends:
+    June to July 2024: An increase in total sales.
+    July to August 2024: A slight dip in sales, followed by a recovery from August to September 2024.
+    Monthly Growth: Average monthly sales increments ranged between 3.6% and 4%. However, July showed high variation from the mean, suggesting potential correlation with internal processes or specific brands.
+- Sales and Customer Age: No clear pattern was observed between sales and customer age, indicating that age may not be a strong predictor in this case.
+- Product Category Insights:
+    Most Frequent Sales: Snacks are the most frequently sold products, followed by Health and Wellness.
+    Top Sales Category: Alcohol consistently led in total sales, with beer accounting for 57% of alcohol sales.
+    Sales Consistency: Alcohol shows a higher mean sales over time, indicating a strong and stable sales performance.
+Statistical Significance: There are statistically significant differences in sales across product categories, which suggests that a focus on certain brands or categories could potentially optimize sales further.
+
+Next Steps:
+Collaboration with SE Team: I would like to schedule a meeting with the SE team to discuss how we can enhance the data pipeline and align our efforts to better support this analysis.
+Sales Perspective Feedback: It would be helpful to get your input on the direction I’m currently taking with the sales analysis, to ensure we are aligned and moving on what provides value to Fetch.
+
+If you have any questions please let me know,
+Maria
 '''
 
 
