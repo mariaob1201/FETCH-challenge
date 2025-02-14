@@ -142,7 +142,7 @@ dtype: object
 - First assessment - Are there any data quality issues present?
     Products:
     From 1-4 categories, the Category 4 has 92% of the total data as missing, wonder if it is an issue on how the data is captured or nature of the business eg no standard categorization of item at that level
-    Barcode has missings .047% of missings: this is relevant because bar code matches wuth Products table, in such case as as those are few, need to be excluded when merging tables
+    Barcode has .047% of missings: this is relevant because bar code matches with Products table, in such case as as those are few, need to be excluded when merging tables
     Manufacturer and brand are also with missing information (26% of the data): relevant if a research question is about that information
     
     User: 
