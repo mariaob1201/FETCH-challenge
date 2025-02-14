@@ -21,12 +21,10 @@ import pandas as pd
 import numpy as np
 
 # Reading files
-users_transactions = pd.read_csv('/Users/mariaoros/Documents/Github-projects/2025/Fetch-DataAnalystHome/1_data/processed/users_transactions_inner.csv', sep=',')
-products_transactions = pd.read_csv('/Users/mariaoros/Documents/Github-projects/2025/Fetch-DataAnalystHome/1_data/processed/products_transactions_inner.csv', sep=',')
+merged_df = pd.read_csv('../1_data/processed/snapshot_021325.csv')
 
-
-print(users_transactions.columns)
-print(users_transactions.dtypes)
+print(merged_df.columns)
+print(merged_df.dtypes)
 ########################## Q1: What are the top 5 brands by sales among users that have had their account for at least six months?
 # I am assuming
 #   that receipts scanned mean the number of receipt_id's and
@@ -37,4 +35,30 @@ print(users_transactions.dtypes)
 ######################################## MERGING
 
 
-merged_df.to_csv('../1_data/processed/merged_data.csv')
+merged_df["BIRTH_DATE"] = pd.to_datetime(merged_df['BIRTH_DATE'], errors='coerce')
+merged_df["CREATED_DATE"] = pd.to_datetime(merged_df['CREATED_DATE'], errors='coerce')
+
+# create AGE_WHEN_CREATION years between birth date and date of creation both from USERS table
+merged_df['AGE_WHEN_CREATION'] = merged_df.apply(
+    lambda row: np.floor((row['CREATED_DATE'] - row['BIRTH_DATE']).days / 365.25)
+    if pd.notnull(row['CREATED_DATE']) and pd.notnull(row['BIRTH_DATE']) else np.nan,
+    axis=1
+)
+
+merged_df['PURCHASE_DATE_CT'] = pd.to_datetime(merged_df['PURCHASE_DATE'])
+merged_df['PURCHASE_DATE_CT'] = merged_df['PURCHASE_DATE_CT'].dt.tz_localize('UTC')
+
+
+merged_df['TIME_AS_USER_WHEN_PURCHASING'] = merged_df.apply(
+    lambda row: np.floor((row['PURCHASE_DATE_CT'] - row['CREATED_DATE']).days / 365.25)
+    if pd.notnull(row['PURCHASE_DATE_CT']) and pd.notnull(row['CREATED_DATE']) else np.nan,
+    axis=1
+)
+
+merged_df['TIME_AS_USER_WHEN_PURCHASING_MO'] = merged_df.apply(
+    lambda row: np.floor((row['PURCHASE_DATE_CT'] - row['CREATED_DATE']).days / 30.4375)
+    if pd.notnull(row['PURCHASE_DATE_CT']) and pd.notnull(row['CREATED_DATE']) else np.nan,
+    axis=1
+)
+
+print(len(merged_df))
