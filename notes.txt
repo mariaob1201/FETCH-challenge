@@ -1,0 +1,13 @@
+1. About the Role & Team
+-What are some key challenges your data team is currently facing, and how could a data analyst help solve them?
+-What does success look like in this role within the first 90 days?
+2. About Data & Business Impact
+- How does the data team at Fetch Rewards collaborate with other departments like marketing, product, or engineering?
+- Can you give an example of how data-driven insights have directly impacted business decisions at Fetch Rewards?
+3. About Growth & Learning
+- What are some upcoming projects or initiatives that the data team is excited about?
+4. About Company Culture
+-What’s the culture like within the data team? How do team members typically collaborate on projects?
+
+Can I ask what is your main brand partner and from a data perspective, what do they care more about in terms of loyalty?
+customer recurrence?

@@ -1,0 +1,38 @@
+'''
+Our partner, Pepsi, has seen heavy national sales loss during the US holiday months
+(OCT - DEC).
+They have seen loyalty data from Target's RED Loyalty Program that shows Pepsi's
+best customers bought less during the most recent holiday season.
+Pepsi is worried that what they see in Target's loyalty data is also what is
+causing their national sales dip. Can we use our data to confirm their findings?
+'''
+
+# Assume that transactions
+
+
+SELECT
+    CASE
+        WHEN LEFT(STR(RECIPT_PURCHASE_DATE),7) AS '2024-1%' THEN 1
+        WHEN LEFT(STR(RECIPT_PURCHASE_DATE),7) AS '2023-1%' THEN 2
+        ELSE 3
+    END AS PERIOD,
+    sum(DOLLARS) AS TOTAL
+FROM TRANSACTIONS
+GROUP BY PERIOD
+WHERE PERIOD!=3;
+
+###--------------- HEAVY BUYERS TREND
+SELECT MEAN(DOLLARS) AS MEAN_TOT
+FROM TRANSACTIONS
+WHERE RECEIPT_PURCHASE_DATE LIKE '2024-%';
+
+SELECT
+     USER_ID,
+     MEAN(DOLLARS) AS MEAN_SPENT
+FROM TRANSACTIONS
+GROUP BY USER_ID
+WHERE RECEIPT_PURCHASE_DATE LIKE '2024-%'
+AND MEAN_SPENT > (SELECT MEAN(DOLLARS) AS MEAN_TOT
+            FROM TRANSACTIONS
+            WHERE RECEIPT_PURCHASE_DATE LIKE '2024-%')
+ORDER BY MEAN_SPENT DESC;
